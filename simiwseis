@@ -1,0 +1,18 @@
+#d={'john': 55,'nick': 33}
+#if 'mike' not in d:
+#	print('not found')
+#if 'john' in d:
+#	print('found')
+#for k,v in d.items() :
+#	print(k,v)
+transitions = {
+'s0':{'l':'s1','t':'s2'},
+'s1':{'o':'s3'},
+'s2':{'e':'s6'},
+'s3':{'n':'s4'},
+'s4':{'g':'s5'},
+'s6':{'r':'s7','s':'s8'},
+'s7':{'m':'s9'},
+'s8':{'t':'s10'}
+}
+print(transitions['s6']['s'])
