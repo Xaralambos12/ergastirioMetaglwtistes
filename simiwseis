@@ -15,4 +15,5 @@ transitions = {
 's7':{'m':'s9'},
 's8':{'t':'s10'}
 }
+accepts = {'s5':'LONG_TOKEN','s9':'TERM_TOKEN','s10','TEST_TOKEN'}
 print(transitions['s6']['s'])
