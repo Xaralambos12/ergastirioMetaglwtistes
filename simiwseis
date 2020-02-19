@@ -5,6 +5,8 @@
 #	print('found')
 #for k,v in d.items() :
 #	print(k,v)
+
+
 transitions = {
 's0':{'l':'s1','t':'s2'},
 's1':{'o':'s3'},
