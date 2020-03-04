@@ -1,0 +1,36 @@
+def get_char(text,pos):
+	if pos<0 or pos>=len(text):
+		return None
+	c=text[pos]
+	if c>='0' and c<='9':
+		return 'DIGIT'
+	if c>='A' and c<='Z':
+		return 'LETTER'
+	if c>='a' and c<='z':
+		return 'LETTER'
+	return c
+
+
+def scan(text,transitions,accepts,start):
+	pos = 0
+	state = start
+	matched = None #kratame tin timi pou exoume vri sti katastasi apodoxis, an epistrepsi none ine lathos
+	while True : #gia panta
+		c=get_char(text,pos)
+		if state in transitions and c in transitions[state]:
+			state = transitions[state][c]
+			pos+=1
+			if state in accepts: #ean vriskome se katastasi apodoxis
+				matched = {'token': accepts[state],'lexeme':text[:pos]}
+		else:
+			return matched
+
+transitions = {
+'s0':{'LETTER':'s1','_':'s1'},
+'s1':{'DIGIT':'s1','_':'s1','LETTER':'s1'}
+}
+accepts = {'s1':'VAR_TOKEN'}
+
+text = input('Give')
+m=scan(text,transitions,accepts,'s0')
+print(m)
